@@ -1,15 +1,41 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Backgrounds */
+  --bg-primary: #ffffff;
+  --bg-secondary: #e8e6e1;   /* Bege claro — fundo externo (ref: mapa_carreira) */
+  --bg-tertiary: #f1f5f9;   /* slate-100 — cards, badges    */
+
+  /* Purple principal — identidade do portfólio (ref: mapa_carreira) */
+  --color-primary: #7b3f7a;   /* Purple — cor principal de destaque */
+  --color-primary-dark: #6b3468;   /* Purple escuro — header background */
+  --color-primary-light: #9b5f9a;   /* Purple claro — ícones ativos  */
+  --color-primary-muted: #f0e6ef;   /* Purple muito claro — fundos suaves  */
+
+  /* Texto */
+  --text-primary: #1a1a1a;   /* Preto — títulos e texto principal */
+  --text-secondary: #475569;   /* slate-600 — texto secundário */
+  --text-muted: #94a3b8;   /* slate-400 — texto desativado */
+
+  /* Bordas */
+  --border-color: #e2e8f0;   /* slate-200 */
+
+  /* Tipografia */
+  --font-heading: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+
+  /* Espaçamentos */
+  --section-padding-y: clamp(80px, 10vw, 140px);
+  --container-max: 1200px;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--bg-primary);
+  --color-foreground: var(--text-primary);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
 }
 
 @media (prefers-color-scheme: dark) {
