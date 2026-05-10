@@ -72,34 +72,34 @@ export default function Timeline() {
               key={index}
               className={`relative w-full mb-12 ${index % 2 === 0 ? "lg:pl-[52%] lg:pr-0" : "lg:pl-0 lg:pr-[52%]"} lg:w-[48%]`}
             >
-                {/* Conteúdo do item */}
-                <div
-                  className={`relative p-6 bg-white rounded-xl shadow-md border border-border-color ${
-                    index % 2 === 0
-                      ? "lg:left-0 lg:right-[52%]"
-                      : "lg:left-[52%] lg:right-0"
-                  }`}
-                >
-                  <div className="flex items-center space-x-3 mb-2">
-                    {/* Marcador */}
-                    <div className="w-3 h-3 bg-primary rounded-full flex-shrink-0"></div>
+              {/* Conteúdo do item */}
+              <div
+                className={`relative p-6 bg-white rounded-xl shadow-md border border-border-color ${
+                  index % 2 === 0
+                    ? "lg:left-0 lg:right-[52%]"
+                    : "lg:left-[52%] lg:right-0"
+                }`}
+              >
+                <div className="flex items-center space-x-3 mb-2">
+                  {/* Marcador */}
+                  <div className="w-3 h-3 bg-primary rounded-full flex-shrink-0"></div>
 
-                    {/* Ano */}
-                    <span className="text-xs font-medium text-primary-muted">
-                      {item.year}
-                    </span>
-                  </div>
-
-                  <h3 className="font-semibold text-text-primary mb-2">
-                    {item.role}
-                  </h3>
-                  <p className="text-text-muted mb-2">{item.company}</p>
-                  <p className="text-text-muted">{item.description}</p>
+                  {/* Ano */}
+                  <span className="text-xs font-medium text-primary-muted">
+                    {item.year}
+                  </span>
                 </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+
+                <h3 className="font-semibold text-text-primary mb-2">
+                  {item.role}
+                </h3>
+                <p className="text-text-muted mb-2">{item.company}</p>
+                <p className="text-text-muted">{item.description}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

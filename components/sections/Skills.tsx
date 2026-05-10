@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState } from 'react';
-import { useLanguage } from '@/context/LanguageContext';
-import { translations } from '@/data/translations';
-import { gsap } from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
+import { useEffect, useRef, useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/data/translations";
+import { gsap } from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 interface SkillItem {
   name: string;
@@ -15,40 +15,45 @@ export default function Skills() {
   const { locale } = useLanguage();
   const t = translations[locale].skills;
   const skillsRef = useRef<HTMLDivElement>(null);
-  
+
   // State para skills e linguagens do GitHub
   const [skills, setSkills] = useState<SkillItem[]>([
-    { name: 'JavaScript', percentage: 85 },
-    { name: 'TypeScript', percentage: 75 },
-    { name: 'React', percentage: 80 },
-    { name: 'Next.js', percentage: 75 },
-    { name: 'Node.js', percentage: 80 },
-    { name: 'Java', percentage: 70 },
-    { name: 'Python', percentage: 65 },
-    { name: 'SQL', percentage: 75 },
+    { name: "JavaScript", percentage: 85 },
+    { name: "TypeScript", percentage: 75 },
+    { name: "React", percentage: 80 },
+    { name: "Next.js", percentage: 75 },
+    { name: "Node.js", percentage: 80 },
+    { name: "Java", percentage: 70 },
+    { name: "Python", percentage: 65 },
+    { name: "SQL", percentage: 75 },
   ]);
 
-  const [gitLanguages, setGitLanguages] = useState<{ [key: string]: number }>({});
+  const [gitLanguages, setGitLanguages] = useState<{ [key: string]: number }>(
+    {},
+  );
   const [loading, setLoading] = useState(true);
 
   // Buscar linguagens do GitHub dinamicamente
   useEffect(() => {
     const fetchGithubLanguages = async () => {
       try {
-        const response = await fetch('https://api.github.com/users/EuAndersonDev/repos');
+        const response = await fetch(
+          "https://api.github.com/users/EuAndersonDev/repos",
+        );
         const repos = await response.json();
 
         const languageCount: { [key: string]: number } = {};
         repos.forEach((repo: any) => {
           if (repo.language) {
-            languageCount[repo.language] = (languageCount[repo.language] || 0) + 1;
+            languageCount[repo.language] =
+              (languageCount[repo.language] || 0) + 1;
           }
         });
 
         setGitLanguages(languageCount);
         setLoading(false);
       } catch (error) {
-        console.error('Erro ao buscar linguagens do GitHub:', error);
+        console.error("Erro ao buscar linguagens do GitHub:", error);
         setLoading(false);
       }
     };
@@ -60,26 +65,26 @@ export default function Skills() {
   useEffect(() => {
     if (!skillsRef.current) return;
 
-    gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
-      const bars = skillsRef.current?.querySelectorAll('.skill-bar-inner');
+    gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", () => {
+      const bars = skillsRef.current?.querySelectorAll(".skill-bar-inner");
       if (!bars) return;
 
       Array.from(bars).forEach((bar: any) => {
-        const finalWidth = bar.getAttribute('data-width');
+        const finalWidth = bar.getAttribute("data-width");
         gsap.from(bar, {
-          width: '0%',
+          width: "0%",
           duration: 1.2,
-          ease: 'power2.out',
+          ease: "power2.out",
           scrollTrigger: {
             trigger: skillsRef.current,
-            start: 'top 70%',
-            toggleActions: 'play none none none',
+            start: "top 70%",
+            toggleActions: "play none none none",
           },
         });
       });
 
       return () => {
-        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       };
     });
 
@@ -100,7 +105,10 @@ export default function Skills() {
         </h3>
         <div className="space-y-3">
           {skills.map((skill, index) => (
-            <div key={index} className="flex items-center justify-between gap-2">
+            <div
+              key={index}
+              className="flex items-center justify-between gap-2"
+            >
               <span className="text-xs text-text-secondary font-medium min-w-fit">
                 {skill.name}
               </span>
@@ -111,7 +119,9 @@ export default function Skills() {
                   style={{ width: `${skill.percentage}%` }}
                 />
               </div>
-              <span className="text-xs text-text-muted">{skill.percentage}%</span>
+              <span className="text-xs text-text-muted">
+                {skill.percentage}%
+              </span>
             </div>
           ))}
         </div>
@@ -130,14 +140,21 @@ export default function Skills() {
               .sort(([, a], [, b]) => b - a)
               .slice(0, 8)
               .map(([lang, count], index) => (
-                <div key={index} className="flex items-center justify-between gap-2">
+                <div
+                  key={index}
+                  className="flex items-center justify-between gap-2"
+                >
                   <span className="text-xs text-text-secondary">{lang}</span>
-                  <span className="text-xs text-text-muted">{count} repo{count > 1 ? 's' : ''}</span>
+                  <span className="text-xs text-text-muted">
+                    {count} repo{count > 1 ? "s" : ""}
+                  </span>
                 </div>
               ))}
           </div>
         ) : (
-          <p className="text-xs text-text-muted">Nenhuma linguagem encontrada</p>
+          <p className="text-xs text-text-muted">
+            Nenhuma linguagem encontrada
+          </p>
         )}
       </div>
 

@@ -51,8 +51,8 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-primary-dark/95 backdrop-blur-md shadow-lg'
-          : 'bg-primary-dark'
+          ? "bg-primary-dark/95 backdrop-blur-md shadow-lg"
+          : "bg-primary-dark"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -88,7 +88,7 @@ export default function Header() {
             className="text-white text-sm hover:text-primary-light transition-colors"
             aria-label="Toggle language"
           >
-            {locale === 'pt' ? '🇧🇷' : '🇺🇸'}
+            {locale === "pt" ? "🇧🇷" : "🇺🇸"}
           </button>
         </div>
       </div>
