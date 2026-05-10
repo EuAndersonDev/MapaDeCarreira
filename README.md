@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Mapa de Carreira
 
-## Getting Started
+Um portfólio interativo desenvolvido com Next.js, React e Tailwind CSS para apresentar sua jornada profissional e habilidades.
 
-First, run the development server:
+## ✨ Características
+
+- ✅ Header com informações profissionais
+- ✅ Seção de apresentação pessoal
+- ✅ Mapa de carreira com 3 níveis (Junior, Plena, Sênior)
+- ✅ Seção de habilidades com barras de progresso
+- ✅ Listagem de idiomas
+- ✅ Footer com informações de contato
+- ✅ Design responsivo e moderno
+
+## 🛠️ Tecnologias
+
+- **Next.js 16.2.6** - Framework React
+- **React 19.2.4** - Biblioteca UI
+- **TypeScript** - Tipagem estática
+- **Tailwind CSS 4** - Estilização
+- **ESLint** - Linting de código
+
+## 📦 Instalação
 
 ```bash
+# Instalar dependências
+npm install
+
+# Executar em desenvolvimento
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build para produção
+npm run build
+
+# Iniciar servidor de produção
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📁 Estrutura do Projeto
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Veja [ARCHITECTURE.md](./ARCHITECTURE.md) para detalhes completos da estrutura.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/                    # Next.js App Router
+├── components/             # Componentes reutilizáveis
+├── data/                   # Dados estáticos e mockados
+├── types/                  # Tipos TypeScript
+└── styles/                 # Estilos específicos
+```
 
-## Learn More
+## 🎨 Customização
 
-To learn more about Next.js, take a look at the following resources:
+1. **Dados pessoais**: Edite `src/data/mockData.ts`
+2. **Cores**: Customize `tailwind.config.ts`
+3. **Componentes**: Modifique componentes em `src/components/`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📝 Licença
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT © 2026
